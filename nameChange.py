@@ -1,4 +1,5 @@
-#!/Users/admin/anaconda/bin/python
+#!/ccnc_bin/venv/bin/python
+
 import re
 import os
 import argparse
