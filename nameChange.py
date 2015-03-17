@@ -10,16 +10,16 @@ def nameChange(directoryLocation):
     directoryList = os.listdir(directoryLocation)
 
     #pattern compile
-    t1 = re.compile(r'tfl|[^s]t1',re.IGNORECASE)
+    t1 = re.compile(r'tfl|[^s]t1|^t1|208',re.IGNORECASE)
 
-    dti = re.compile(r'dti\S*\(.\)_\d+\S*',re.IGNORECASE)
+    dti = re.compile(r'dti\S*\(.\)_\d+\S*|^dti64D_65$',re.IGNORECASE)
     dti_AP = re.compile(r'dti_72D_.*AP',re.IGNORECASE)
     dti_PA = re.compile(r'dti_72D_.*PA',re.IGNORECASE)
     dtiFA = re.compile(r'dti.*[^l]fa',re.IGNORECASE)
     dtiEXP = re.compile(r'dti.*exp',re.IGNORECASE)
     dtiCOLFA = re.compile(r'dti.*colfa',re.IGNORECASE)
 
-    dki = re.compile(r'dki\S*\(.\)_\d+\S*',re.IGNORECASE)
+    dki = re.compile(r'dki\S*\(.\)_\d+\S*|^DKI30D_151$',re.IGNORECASE)
     dkiFA = re.compile(r'dki.*[^l]fa',re.IGNORECASE)
     dkiEXP = re.compile(r'dki.*exp',re.IGNORECASE)
     dkiCOLFA = re.compile(r'dki.*colfa',re.IGNORECASE)
@@ -33,8 +33,7 @@ def nameChange(directoryLocation):
 
     foundDict={}
 
-    #Search
-    for modality in (t1,'T1'),(rest,'REST'),(dki,"DKI"),(dti,'DTI'),(t2flair,'T2FLAIR'),(t2tse,'T2TSE'),(dtiFA,'DTI_FA'),(dtiEXP,'DTI_EXP'),(dtiCOLFA,'DTI_COLFA'),(dkiFA,'DKI_FA'),(dkiEXP,'DKI_EXP'),(dkiCOLFA,'DKI_COLFA'):
+    #Search for modality in (t1,'T1'),(rest,'REST'),(dki,"DKI"),(dti,'DTI'),(t2flair,'T2FLAIR'),(t2tse,'T2TSE'),(dtiFA,'DTI_FA'),(dtiEXP,'DTI_EXP'),(dtiCOLFA,'DTI_COLFA'),(dkiFA,'DKI_FA'),(dkiEXP,'DKI_EXP'),(dkiCOLFA,'DKI_COLFA'):
         #print modality[0].search(' '.join(directoryLocation)).group()
         foundDict[os.path.join(directoryLocation,modality[1])] = ''.join([os.path.join(directoryLocation,x) for x in directoryList if modality[0].search(x)])
 
