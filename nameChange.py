@@ -17,7 +17,7 @@ def nameChange(directoryLocation):
     dtiFA = re.compile(r'dti.*[^l]fa',re.IGNORECASE)
     dtiEXP = re.compile(r'dti.*exp',re.IGNORECASE)
     dtiCOLFA = re.compile(r'dti.*colfa',re.IGNORECASE)
-    dki = re.compile(r'dki\S*\(.\)_\d+\S*|^DKI30D_151$|^DKI_151$',re.IGNORECASE)
+    dki = re.compile(r'dki\S*\(.\)_\d+\S*|^DKI30D_151$|^DKI_151$|^DKI_30D_151$',re.IGNORECASE)
     dkiFA = re.compile(r'dki.*[^l]fa',re.IGNORECASE)
     dkiEXP = re.compile(r'dki.*exp',re.IGNORECASE)
     dkiCOLFA = re.compile(r'dki.*colfa',re.IGNORECASE)
