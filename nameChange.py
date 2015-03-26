@@ -17,7 +17,7 @@ def nameChange(directoryLocation):
     dtiFA = re.compile(r'dti.*[^l]fa',re.IGNORECASE)
     dtiEXP = re.compile(r'dti.*exp',re.IGNORECASE)
     dtiCOLFA = re.compile(r'dti.*colfa',re.IGNORECASE)
-    dki = re.compile(r'dki\S*\(.\)_\d+\S*|^DKI30D_151$',re.IGNORECASE)
+    dki = re.compile(r'dki\S*\(.\)_\d+\S*|^DKI30D_151$|^DKI_151$',re.IGNORECASE)
     dkiFA = re.compile(r'dki.*[^l]fa',re.IGNORECASE)
     dkiEXP = re.compile(r'dki.*exp',re.IGNORECASE)
     dkiCOLFA = re.compile(r'dki.*colfa',re.IGNORECASE)
@@ -54,13 +54,16 @@ def nameChange(directoryLocation):
                                       target)
 
     ##confirm
-    if raw_input('Execute the name change ? [Y/N] : ') == 'Y':
+    if raw_input('Execute the name change ? [y/n] : ') == 'y':
         for source,target in foundDict.iteritems():
 
             print source, os.path.join(directoryLocation,target)
             os.system("mv '{0}' {1}".format(
                             os.path.join(directoryLocation,source),
                             os.path.join(directoryLocation,target)))
+            print "mv '{0}' {1}".format(
+                            os.path.join(directoryLocation,source),
+                            os.path.join(directoryLocation,target))
 
 
 
