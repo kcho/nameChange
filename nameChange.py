@@ -57,8 +57,9 @@ def nameChange(directoryLocation):
     if raw_input('Execute the name change ? [Y/N] : ') == 'Y':
         for source,target in foundDict.iteritems():
 
+            print source, os.path.join(directoryLocation,target)
             os.system("mv '{0}' {1}".format(
-                            source,
+                            os.path.join(directoryLocation,source),
                             os.path.join(directoryLocation,target)))
 
 
