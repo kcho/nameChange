@@ -12,8 +12,8 @@ def nameChange(directoryLocation):
     # pattern compile
     t1 = re.compile(r'tfl|[^s]t1|^t1|208',re.IGNORECASE)
     dti = re.compile(r'dti\S*\(.\)_\d+\S*|^dti64D_65$',re.IGNORECASE)
-    dti_AP = re.compile(r'dti_72D_.*AP',re.IGNORECASE)
-    dti_PA = re.compile(r'dti_72D_.*PA',re.IGNORECASE)
+    dti_AP = re.compile(r'dti_[0-9]*D_.*AP.*',re.IGNORECASE)
+    dti_PA = re.compile(r'dti_[0-9]*D_.*PA.*',re.IGNORECASE)
     dtiFA = re.compile(r'dti.*[^l]fa',re.IGNORECASE)
     dtiEXP = re.compile(r'dti.*exp',re.IGNORECASE)
     dtiCOLFA = re.compile(r'dti.*colfa',re.IGNORECASE)
@@ -30,6 +30,7 @@ def nameChange(directoryLocation):
     foundDict={}
 
     modality = [(t1,'T1'),(rest,'REST'),(dki,"DKI"),(dti,'DTI'),
+                (dti_AP, 'DTI_AP'), (dti_PA, 'DTI_PA'),
                 (t2flair,'T2FLAIR'),(t2tse,'T2TSE'),
                 (dtiFA,'DTI_FA'),(dtiEXP,'DTI_EXP'),(dtiCOLFA,'DTI_COLFA'),
                 (dkiFA,'DKI_FA'),(dkiEXP,'DKI_EXP'),(dkiCOLFA,'DKI_COLFA')]
